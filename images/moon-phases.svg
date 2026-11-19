@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 560" role="img" aria-labelledby="title desc">
+<title id="title">أطوار القمر</title><desc id="desc">رسم علمي مبسط للشمس والأرض والقمر في أربعة أطوار، مع توضيح أن ضوء الشمس يضيء نصف القمر.</desc>
+<defs><radialGradient id="space"><stop stop-color="#1c3150"/><stop offset="1" stop-color="#0a1220"/></radialGradient><radialGradient id="sun"><stop stop-color="#fff5bd"/><stop offset=".65" stop-color="#ffd166"/><stop offset="1" stop-color="#f59e0b"/></radialGradient><radialGradient id="earth"><stop stop-color="#62d5e8"/><stop offset="1" stop-color="#2363a5"/></radialGradient><clipPath id="moonClip"><circle cx="500" cy="285" r="78"/></clipPath></defs>
+<rect width="1000" height="560" rx="28" fill="url(#space)"/>
+<g fill="#d9e8ff" opacity=".8"><circle cx="80" cy="80" r="3"/><circle cx="190" cy="170" r="2"/><circle cx="300" cy="70" r="2"/><circle cx="760" cy="80" r="3"/><circle cx="880" cy="170" r="2"/><circle cx="850" cy="420" r="3"/><circle cx="135" cy="440" r="2"/><circle cx="710" cy="500" r="2"/></g>
+<text x="500" y="58" fill="#eef2f8" font-family="Tahoma,Arial,sans-serif" font-size="30" font-weight="700" text-anchor="middle">أطوار القمر: نرى أجزاءً مختلفة من نصفه المضاء</text>
+<circle cx="500" cy="285" r="78" fill="#6b7c96"/><g clip-path="url(#moonClip)"><circle cx="500" cy="285" r="78" fill="#f2ead8"/><path d="M500 207 A78 78 0 0 0 500 363 Z" fill="#6b7c96"/></g>
+<g fill="#0e1623" opacity=".28"><circle cx="476" cy="260" r="10"/><circle cx="525" cy="296" r="14"/><circle cx="477" cy="322" r="7"/></g>
+<text x="500" y="390" fill="#eef2f8" font-family="Tahoma,Arial,sans-serif" font-size="22" text-anchor="middle">القمر</text>
+<circle cx="145" cy="285" r="48" fill="url(#sun)"/><text x="145" y="365" fill="#ffd166" font-family="Tahoma,Arial,sans-serif" font-size="21" text-anchor="middle">ضوء الشمس</text>
+<circle cx="855" cy="285" r="60" fill="url(#earth)"/><path d="M820 257q25-27 53-10l11 22-24 13-7 25-32-8z" fill="#45ae78"/><text x="855" y="375" fill="#eef2f8" font-family="Tahoma,Arial,sans-serif" font-size="21" text-anchor="middle">الأرض</text>
+<path d="M215 285h170m230 0h150" stroke="#ffd166" stroke-width="4" stroke-dasharray="12 12" opacity=".9"/><path d="m370 273 18 12-18 12m377-24 18 12-18 12" fill="none" stroke="#ffd166" stroke-width="4"/>
+<text x="500" y="475" fill="#b9c9df" font-family="Tahoma,Arial,sans-serif" font-size="19" text-anchor="middle">الشمس تضيء نصف القمر؛ وموقعه حول الأرض يغيّر ما نراه من الجزء المضيء</text>
+</svg>
