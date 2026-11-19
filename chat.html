@@ -1,28 +1,45 @@
 <!doctype html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#0e1623"><title>الأفق | محادثة Gemini</title>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#0e1623"><title>الأفق | مساعد ذكاء اصطناعي</title>
 <style>
-:root{--bg:#0e1623;--card:#142033;--line:#27364d;--ink:#eef2f8;--mut:#9fb0c8;--acc:#2ec4b6}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.7 Tahoma,Arial,sans-serif}.wrap{max-width:900px;margin:auto;padding:0 16px}header{display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-bottom:1px solid var(--line)}header a{color:var(--acc);text-decoration:none}.brand{font-size:24px;font-weight:bold}.chat{height:calc(100vh - 210px);min-height:420px;display:flex;flex-direction:column;margin:18px 0}.messages{flex:1;overflow:auto;padding:12px;border:1px solid var(--line);border-radius:14px 14px 0 0}.msg{max-width:82%;margin:10px 0;padding:10px 13px;border-radius:12px;white-space:pre-wrap}.user{margin-right:auto;background:var(--acc);color:#05201d}.bot{margin-left:auto;background:var(--card);border:1px solid var(--line)}.composer{display:flex;gap:8px;border:1px solid var(--line);border-top:0;padding:8px;border-radius:0 0 14px 14px}.composer textarea{flex:1;resize:none;height:54px;border:0;outline:0;background:transparent;color:var(--ink);font:16px Tahoma,Arial,sans-serif}.composer button{border:0;border-radius:9px;background:var(--acc);color:#05201d;padding:0 18px;font-weight:bold;cursor:pointer}.composer button:disabled{opacity:.6}.note{color:var(--mut);font-size:13px}.error{color:#ff847a}
-</style></head><body><div class="wrap">
-<header><a class="brand" href="./">الأفق</a><a href="./ai.html">صفحة الذكاء الاصطناعي</a></header>
-<h1>محادثة Gemini</h1><div class="chat"><div class="messages" id="messages"><div class="msg bot">مرحبًا! أنا Gemini داخل موقع الأفق. كيف أساعدك؟</div></div>
-<div class="composer"><textarea id="input" placeholder="اكتب رسالتك هنا…"></textarea><button id="send">إرسال</button></div></div>
-<p class="note" id="status">المحادثة تستخدم Gemini عبر خادم آمن. لا ترسل معلومات حساسة.</p>
+:root{--bg:#0e1623;--card:#142033;--line:#27364d;--ink:#eef2f8;--mut:#9fb0c8;--acc:#2ec4b6;--bad:#ff847a}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.7 Tahoma,Arial,sans-serif}.wrap{max-width:900px;margin:auto;padding:0 16px}header{display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-bottom:1px solid var(--line)}header a{color:var(--acc);text-decoration:none}.brand{font-size:24px;font-weight:bold}.intro{margin:18px 0 8px}.intro p,.note{color:var(--mut);font-size:14px}.controls{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:12px 0}.controls button,.composer button{border:0;border-radius:9px;background:var(--acc);color:#05201d;padding:9px 15px;font-weight:bold;cursor:pointer}.controls button:disabled,.composer button:disabled{opacity:.55;cursor:not-allowed}.progress{font-size:13px;color:var(--mut)}.chat{height:min(62vh,650px);min-height:320px;display:flex;flex-direction:column;margin:12px 0}.messages{flex:1;overflow:auto;padding:12px;border:1px solid var(--line);border-radius:14px;background:#0b121d}.msg{max-width:86%;margin:10px 0;padding:10px 13px;border-radius:12px;white-space:pre-wrap;overflow-wrap:anywhere}.user{margin-right:auto;background:var(--acc);color:#05201d}.bot{margin-left:auto;background:var(--card);border:1px solid var(--line)}.composer{display:flex;gap:8px;border:1px solid var(--line);border-top:0;padding:8px;border-radius:0 0 14px 14px}.composer textarea{flex:1;resize:vertical;min-height:50px;max-height:140px;border:0;outline:0;background:transparent;color:var(--ink);font:16px Tahoma,Arial,sans-serif}.note{margin:10px 0 24px}.error{color:var(--bad)}@media(max-width:550px){.chat{height:58vh;min-height:280px}.msg{max-width:94%}}
+</style></head>
+<body><div class="wrap">
+<header><a class="brand" href="./">الأفق</a><a href="./ai.html">← أدوات الذكاء الاصطناعي</a></header>
+<section class="intro"><h1>مساعد الأفق الذكي</h1><p>محادثة ذكاء اصطناعي تعمل على جهازك داخل المتصفح. اضغط تشغيل أول مرة لتنزيل النموذج؛ قد يكون التنزيل كبيرًا ويتطلب متصفحًا وجهازًا يدعمان WebGPU.</p></section>
+<div class="controls"><button id="start">تشغيل المساعد</button><span class="progress" id="status">لم يبدأ تحميل النموذج بعد.</span></div>
+<div class="chat"><div class="messages" id="messages" aria-live="polite"><div class="msg bot">أهلًا! شغّل المساعد أولًا، وبعدها اكتب سؤالك هنا.</div></div><div class="composer"><textarea id="input" placeholder="اكتب رسالتك…" aria-label="رسالتك" disabled></textarea><button id="send" disabled>إرسال</button></div></div>
+<p class="note">المحادثة تُعالج محليًا في متصفحك بعد تنزيل النموذج، ولا تحتاج مفتاح API. قد تكون الإجابات أبطأ أو أقل دقة من الخدمات السحابية، وقد لا تعمل على بعض الهواتف أو الأجهزة غير الداعمة لـWebGPU.</p>
 </div>
-<script>
-const API_ENDPOINT='./api/chat';
-const messages=document.getElementById('messages');
+<script type="module">
+const MODEL_ID='Llama-3.2-1B-Instruct-q4f16_1-MLC';
+const messagesEl=document.getElementById('messages');
 const input=document.getElementById('input');
 const send=document.getElementById('send');
+const start=document.getElementById('start');
 const status=document.getElementById('status');
-const history=[];
-function add(text,kind){const el=document.createElement('div');el.className='msg '+kind;el.textContent=text;messages.appendChild(el);messages.scrollTop=messages.scrollHeight;return el}
-async function submit(){const text=input.value.trim();if(!text||send.disabled)return;input.value='';add(text,'user');history.push({role:'user',content:text});const bot=add('جاري الكتابة…','bot');send.disabled=true;
- try{const r=await fetch(API_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({messages:history})});const data=await r.json();if(!r.ok)throw Error(data.error||'فشل الاتصال بالمحادثة');bot.textContent=data.reply||'لم يصل رد.';history.push({role:'assistant',content:bot.textContent});status.textContent='تم الرد بواسطة Gemini.'}
- catch(e){bot.classList.add('error');bot.textContent=e.message||'تعذر الاتصال بالمحادثة. تأكد من نشر الموقع على Cloudflare Pages وإعداد GEMINI_API_KEY.';status.textContent='تحقق من إعداد Cloudflare Pages؛ GitHub Pages لا يشغّل واجهة API.'}
- finally{send.disabled=false;input.focus()}
+let engine=null, busy=false;
+const history=[{role:'system',content:'أنت مساعد ذكي مفيد داخل موقع عربي. أجب باللغة العربية الواضحة، وباختصار مناسب، وكن صريحًا عند عدم التأكد.'}];
+function add(text,kind){const el=document.createElement('div');el.className='msg '+kind;el.textContent=text;messagesEl.appendChild(el);messagesEl.scrollTop=messagesEl.scrollHeight;return el}
+start.addEventListener('click',async()=>{
+ if(engine||busy)return;
+ if(!window.isSecureContext||!('gpu' in navigator)){status.textContent='هذا المتصفح أو الجهاز لا يدعم WebGPU. جرّب متصفحًا حديثًا على جهاز يدعم WebGPU.';status.classList.add('error');return}
+ busy=true;start.disabled=true;status.classList.remove('error');status.textContent='جارٍ تحميل مكتبة الذكاء الاصطناعي…';
+ try{
+  const {CreateMLCEngine}=await import('https://esm.run/@mlc-ai/web-llm');
+  engine=await CreateMLCEngine(MODEL_ID,{initProgressCallback:(p)=>{status.textContent=p.text||'جارٍ تجهيز النموذج…'}});
+  status.textContent='المساعد جاهز. اكتب رسالتك.';input.disabled=false;send.disabled=false;input.focus();
+ }catch(err){engine=null;start.disabled=false;status.textContent='لم يتمكن المتصفح من تحميل النموذج. تحقق من اتصال الإنترنت والمساحة ودعم WebGPU، ثم أعد المحاولة.';status.classList.add('error');console.error(err)}
+ finally{busy=false}
+});
+async function submit(){const text=input.value.trim();if(!engine||!text||busy)return;input.value='';add(text,'user');history.push({role:'user',content:text});const answer=add('يفكر…','bot');busy=true;send.disabled=true;start.disabled=true;
+ try{
+  const stream=await engine.chat.completions.create({messages:history.slice(-9),temperature:0.7,max_tokens:512,stream:true});let result='';
+  for await(const part of stream){result+=part.choices?.[0]?.delta?.content||'';answer.textContent=result||'يفكر…';messagesEl.scrollTop=messagesEl.scrollHeight}
+  if(!result.trim())result='لم أتمكن من صياغة رد. حاول مرة أخرى.';answer.textContent=result;history.push({role:'assistant',content:result});
+ }catch(err){answer.classList.add('error');answer.textContent='حدث خطأ أثناء توليد الرد. حاول مرة أخرى.';history.pop();console.error(err)}
+ finally{busy=false;send.disabled=false;start.disabled=false;input.focus()}
 }
-send.onclick=submit;input.addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();submit()}});
+send.addEventListener('click',submit);input.addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();submit()}});
 </script></body></html>
