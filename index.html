@@ -1,62 +1,192 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#101114">
-  <meta name="description" content="مرصد — منصة عربية للأخبار والتحليلات السياسية. تابع أبرز الملفات والتطورات من المنطقة والعالم.">
-  <meta property="og:title" content="مرصد | أخبار وتحليلات سياسية">
-  <meta property="og:description" content="الأخبار السياسية كما تحدث — قراءة أعمق للمشهد.">
-  <meta property="og:type" content="website">
-  <title>مرصد | أخبار وتحليلات سياسية</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    :root{--bg:#101114;--panel:#17181d;--panel2:#1d1e24;--ink:#f4f3ef;--muted:#a5a5ad;--line:#303139;--red:#e7443b;--gold:#e4bd76;--max:1240px;color-scheme:dark}
-    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 78% 0%,#3a1c1c 0,transparent 34%),var(--bg);color:var(--ink);font:16px/1.8 'IBM Plex Sans Arabic',sans-serif}a{color:inherit;text-decoration:none}button{font:inherit}.container{width:min(var(--max),calc(100% - 44px));margin:auto}.topline{background:#0b0c0e;border-bottom:1px solid var(--line);font-size:12px;color:var(--muted)}.topline .container{display:flex;justify-content:space-between;align-items:center;min-height:36px}.date{direction:rtl}.top-actions{display:flex;gap:18px}.masthead{padding:24px 0 18px}.masthead-row{display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{display:flex;align-items:center;gap:13px}.brand-mark{width:50px;height:50px;background:linear-gradient(145deg,#fa5b4f,#a51f24);display:grid;place-items:center;transform:rotate(-7deg);box-shadow:8px 8px 0 #ffffff0c}.brand-mark svg{width:29px;height:29px}.brand-name{font-size:33px;font-weight:700;line-height:1}.brand-sub{color:var(--muted);font-size:12px;margin-top:5px}.masthead-note{color:var(--muted);font-size:13px;max-width:255px;text-align:left}.nav-wrap{border-block:1px solid var(--line);background:#121317d9;position:sticky;top:0;z-index:10;backdrop-filter:blur(16px)}.nav-row{height:55px;display:flex;align-items:center;justify-content:space-between;gap:20px}.nav-links{display:flex;align-items:center;gap:27px;white-space:nowrap;overflow:auto;scrollbar-width:none}.nav-links a{font-size:14px;color:#ceced2;transition:color .2s}.nav-links a:hover,.nav-links a.active{color:var(--gold)}.search{display:flex;align-items:center;gap:7px;border:1px solid var(--line);border-radius:3px;padding:5px 10px;color:var(--muted)}.search input{width:118px;background:transparent;border:0;outline:0;color:var(--ink);font:13px 'IBM Plex Sans Arabic',sans-serif}.ticker{border-bottom:1px solid var(--line);overflow:hidden;background:#17171b}.ticker-inner{display:flex;align-items:center;gap:17px;min-height:42px;white-space:nowrap}.ticker-label{background:var(--red);padding:2px 12px;font-size:12px;font-weight:700;flex:none}.ticker p{margin:0;color:#d9d9dc;font-size:13px;overflow:hidden;text-overflow:ellipsis}.hero{padding:34px 0 26px;display:grid;grid-template-columns:1.04fr .96fr;gap:24px;min-height:445px}.hero-copy{display:flex;flex-direction:column;justify-content:center;padding:32px 38px;background:linear-gradient(135deg,#242127,#16171c 70%);border:1px solid #ffffff0d;position:relative;overflow:hidden;isolation:isolate}.hero-copy:after{content:'';position:absolute;width:280px;height:280px;border:1px solid #ffffff12;border-radius:50%;left:-85px;bottom:-185px;box-shadow:0 0 0 30px #ffffff08,0 0 0 60px #ffffff05;z-index:-1}.eyebrow{display:flex;align-items:center;gap:9px;color:var(--gold);font-size:12px;font-weight:600;letter-spacing:.03em}.eyebrow:before{content:'';height:2px;width:24px;background:var(--red)}h1{font-size:clamp(29px,4vw,48px);line-height:1.48;margin:18px 0 12px;max-width:650px;font-weight:700}.hero-copy>p{color:#c0bfc4;margin:0 0 22px;max-width:540px;font-size:15px}.story-meta{display:flex;align-items:center;gap:12px;color:var(--muted);font-size:12px}.story-meta .dot{width:4px;height:4px;border-radius:50%;background:var(--red)}.read-link{margin-top:24px;display:flex;align-items:center;gap:10px;font-weight:600;font-size:14px;width:max-content}.read-link span{color:var(--gold);font-size:20px;transition:transform .2s}.read-link:hover span{transform:translateX(-4px)}.hero-art{position:relative;min-height:360px;overflow:hidden;background:radial-gradient(ellipse at 54% 46%,#713c37 0,#452627 24%,#222026 53%,#15161b 76%);border:1px solid #ffffff0d;perspective:900px;display:grid;place-items:center}.art-grid{position:absolute;inset:auto -12% -40% -12%;height:75%;transform:rotateX(63deg);background-image:linear-gradient(#ffffff24 1px,transparent 1px),linear-gradient(90deg,#ffffff24 1px,transparent 1px);background-size:35px 35px;mask-image:linear-gradient(transparent,#000 30%,transparent 90%)}.orb{position:relative;width:min(270px,64vw);aspect-ratio:1;border-radius:50%;transform-style:preserve-3d;animation:float 7s ease-in-out infinite;filter:drop-shadow(0 26px 35px #08080bb3)}.orb::before{content:'';position:absolute;inset:0;border-radius:50%;background:radial-gradient(ellipse at 31% 25%,#efc5a1 0,#a46657 12%,#542d36 32%,#292a36 59%,#12141b 78%);box-shadow:inset -28px -17px 55px #000b,inset 11px 9px 30px #ffd6b744,0 0 55px #ef655433}.orb::after{content:'';position:absolute;inset:-9px;border-radius:50%;border:1px solid #f0c687a8;transform:rotateX(68deg) rotateY(-12deg);box-shadow:0 0 19px #e4bd7645}.orb-line{position:absolute;inset:14% 0;border-block:1px solid #eacb9d47;border-radius:50%;transform:rotateY(64deg)}.art-caption{position:absolute;right:22px;bottom:18px;display:flex;align-items:center;gap:8px;font-size:11px;color:#d3c7c1}.art-caption i{width:6px;height:6px;border-radius:50%;background:var(--red)}.section-head{display:flex;justify-content:space-between;align-items:center;margin:20px 0 15px;border-bottom:1px solid var(--line);padding-bottom:10px}.section-title{font-size:20px;font-weight:700;margin:0;display:flex;align-items:center;gap:11px}.section-title:before{content:'';width:4px;height:23px;background:var(--red)}.more{font-size:12px;color:var(--gold)}.news-layout{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:28px;padding-bottom:60px}.news-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.card{background:var(--panel);border:1px solid #ffffff0a;transition:transform .25s,border-color .25s,box-shadow .25s;transform-style:preserve-3d}.card:hover{transform:translateY(-5px) rotateX(1deg);border-color:#e4bd7640;box-shadow:0 15px 32px #0004}.card-image{height:170px;position:relative;overflow:hidden;background:linear-gradient(135deg,#513638,#1b1b22)}.card-image:before,.card-image:after{content:'';position:absolute}.card-image:before{inset:0;background:linear-gradient(0deg,#101114d9,transparent 65%)}.card-image:after{width:145px;height:145px;border:1px solid #ffffff32;border-radius:50%;top:12px;left:calc(50% - 72px);box-shadow:0 0 0 18px #ffffff08,0 0 0 39px #ffffff05}.card-image .visual{position:absolute;inset:0;display:grid;place-items:center;font:800 46px Manrope,sans-serif;color:#ffffff21;letter-spacing:-.08em}.card-image .visual:after{content:'';width:80px;height:80px;border:1px solid #e4bd7680;transform:rotate(45deg);position:absolute}.card-image.tone2{background:linear-gradient(135deg,#293b3b,#1b1c22)}.card-image.tone3{background:linear-gradient(135deg,#4c382d,#1b1c22)}.card-image.tone4{background:linear-gradient(135deg,#343454,#1b1c22)}.card-image.tone5{background:linear-gradient(135deg,#5a3430,#1b1c22)}.card-image.tone6{background:linear-gradient(135deg,#333c2f,#1b1c22)}.category{position:absolute;z-index:1;right:13px;top:12px;background:#17181dd9;color:var(--gold);padding:3px 9px;font-size:11px}.card-content{padding:15px 17px 17px}.card h3{margin:0 0 9px;font-size:17px;line-height:1.7}.card p{margin:0 0 15px;color:var(--muted);font-size:13px;line-height:1.9}.card .story-meta{font-size:11px}.side-panel{background:var(--panel);border:1px solid #ffffff0a;padding:20px;margin-bottom:17px}.side-panel h3{margin:0 0 13px;font-size:17px}.side-panel h3:after{content:'';display:block;width:34px;height:2px;background:var(--red);margin-top:8px}.brief-item{padding:12px 0;border-bottom:1px solid var(--line)}.brief-item:last-child{border:0;padding-bottom:0}.brief-item strong{display:block;font-size:13px;line-height:1.75}.brief-item small{color:var(--muted);font-size:11px}.brief-number{color:var(--red);font:700 12px Manrope;margin-left:8px}.newsletter p{color:var(--muted);font-size:12px;margin:0 0 12px}.newsletter form{display:flex}.newsletter input{min-width:0;flex:1;background:#101114;border:1px solid var(--line);padding:9px;color:var(--ink);font:12px 'IBM Plex Sans Arabic',sans-serif}.newsletter button{background:var(--red);color:white;border:0;padding:0 13px;cursor:pointer;font-size:12px}.newsletter-note{display:block;color:var(--muted);font-size:10px;margin-top:8px}.topics{display:flex;flex-wrap:wrap;gap:8px}.topics a{border:1px solid var(--line);padding:4px 9px;color:#c5c5ca;font-size:11px}.topics a:hover{border-color:var(--gold);color:var(--gold)}.analysis{margin:15px 0 0;padding:22px;background:linear-gradient(115deg,#29251f,#191a1f);border-right:3px solid var(--gold);display:flex;justify-content:space-between;align-items:center;gap:20px}.analysis h3{margin:4px 0;font-size:18px}.analysis p{margin:0;color:var(--muted);font-size:13px}.analysis .read-link{flex:none;margin:0}.footer{border-top:1px solid var(--line);background:#0b0c0e;padding:30px 0;color:var(--muted);font-size:12px}.footer-row{display:flex;justify-content:space-between;align-items:center;gap:20px}.footer-brand{font-size:20px;color:var(--ink);font-weight:700}.footer-links{display:flex;gap:17px}.demo-note{background:#262116;border:1px solid #e4bd7640;color:#e8d8ba;padding:10px 14px;font-size:12px;margin:12px 0 0}.toast{position:fixed;bottom:22px;left:22px;background:#262116;border:1px solid #e4bd7640;padding:12px 18px;z-index:20;transform:translateY(100px);opacity:0;transition:.3s;font-size:13px}.toast.show{transform:translateY(0);opacity:1}.reveal{opacity:0;transform:translateY(14px);transition:opacity .55s,transform .55s}.reveal.visible{opacity:1;transform:none}@keyframes float{0%,100%{transform:translateY(0) rotateY(-9deg)}50%{transform:translateY(-13px) rotateY(9deg)}}
-    @media(min-width:1000px){.hero{min-height:455px}.hero-art{min-height:400px}.card-image{height:185px}}
-    @media(max-width:850px){.hero{grid-template-columns:1fr;min-height:0}.hero-copy{min-height:330px}.hero-art{min-height:310px}.news-layout{grid-template-columns:minmax(0,1fr) 260px;gap:18px}.nav-links{gap:18px}.masthead-note{display:none}}
-    @media(max-width:650px){.container{width:min(100% - 28px,var(--max))}.topline .container{font-size:10px}.top-actions{gap:10px}.masthead{padding:18px 0 14px}.brand-name{font-size:28px}.brand-mark{width:43px;height:43px}.nav-row{height:49px}.nav-links{gap:17px}.nav-links a{font-size:12px}.search{padding:5px}.search input{width:66px}.ticker-inner{min-height:38px}.ticker p{font-size:11px}.hero{padding-top:20px;gap:13px}.hero-copy{padding:23px 20px;min-height:310px}h1{font-size:29px}.hero-art{min-height:270px}.orb{width:205px}.section-title{font-size:18px}.news-layout{grid-template-columns:1fr}.news-grid{gap:11px}.card-image{height:125px}.card-content{padding:12px}.card h3{font-size:14px}.card p{font-size:11px}.card .story-meta{font-size:10px}.side-column{display:grid;grid-template-columns:1fr 1fr;gap:12px}.side-panel{padding:15px;margin:0}.analysis{padding:17px}.analysis h3{font-size:15px}.analysis p{font-size:11px}.analysis .read-link{font-size:12px}.footer-row{align-items:flex-start;flex-direction:column}.footer-links{flex-wrap:wrap}}
-    @media(max-width:390px){.news-grid{grid-template-columns:1fr}.card-image{height:165px}.card h3{font-size:16px}.card p{font-size:13px}.nav-links{gap:13px}.side-column{grid-template-columns:1fr}}
-    @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation-duration:.01ms!important;transition-duration:.01ms!important}.reveal{opacity:1;transform:none}}
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>الأفق | أخبار سياسية</title>
+<meta name="description" content="الأفق: موقع إخبار سياسي بتصميم ثلاثي الأبعاد.">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#0e1623">
+<link rel="icon" type="image/svg+xml" href="icons/favicon.svg">
+<link rel="icon" type="image/png" href="icons/favicon-64.png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="mobile-web-app-capable" content="yes">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@500;800&family=Noto+Sans+Arabic:wght@400;700&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0e1623;--bg2:#162236;--ink:#eef2f8;--mut:#9fb0c8;--line:#27364d;--acc:#2ec4b6;--hot:#ff5a4f;--card:#142033;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e1623;--bg2:#162236;--ink:#eef2f8;--mut:#9fb0c8;--line:#27364d;--card:#142033;color-scheme:dark}}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#f1f3f7;--bg2:#e3e8f0;--ink:#101a2b;--mut:#51627c;--line:#cbd4e2;--card:#fff;--acc:#0a8f84;--hot:#d6372d}}
+:root[data-theme="dark"]{--bg:#0e1623;--bg2:#162236;--ink:#eef2f8;--mut:#9fb0c8;--line:#27364d;--card:#142033;color-scheme:dark}
+:root[data-theme="light"]{--bg:#f1f3f7;--bg2:#e3e8f0;--ink:#101a2b;--mut:#51627c;--line:#cbd4e2;--card:#fff;--acc:#0a8f84;--hot:#d6372d}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.8 Tajawal,"Noto Sans Arabic","Segoe UI",Tahoma,sans-serif;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:3px solid var(--acc);outline-offset:3px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:"Noto Kufi Arabic","Noto Sans Arabic",Tajawal,sans-serif;line-height:1.5;margin:0}
+.ticker{background:var(--hot);color:#fff;font-weight:700;font-size:15px;display:flex;overflow:hidden;white-space:nowrap}
+.ticker b{background:#0003;padding:6px 16px;flex:none}
+.ticker div{display:inline-block;padding:6px 0;animation:run 40s linear infinite}
+.ticker span{margin:0 28px}
+@keyframes run{from{transform:translateX(-100%)}to{transform:translateX(0)}}
+header.top{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 0;border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:12px}.brand svg{flex:none;border-radius:10px}
+.logo{font:800 30px "Noto Kufi Arabic",sans-serif;letter-spacing:0}
+.logo i{color:var(--acc);font-style:normal}
+nav{display:flex;gap:6px;flex-wrap:wrap}
+nav button,.theme{background:none;border:1px solid transparent;color:var(--mut);font:500 16px Tajawal,sans-serif;padding:6px 14px;border-radius:99px;cursor:pointer}
+nav button:hover{color:var(--ink)}
+nav button[aria-pressed="true"]{background:var(--acc);color:#04201d;font-weight:700}
+.theme{border-color:var(--line)}
+.hero{display:grid;grid-template-columns:1.1fr 1fr;gap:28px;align-items:center;padding:44px 0 36px}
+.hero h1{font-size:clamp(30px,4.6vw,54px);font-weight:800}
+.hero p{color:var(--mut);max-width:52ch;margin:14px 0 20px}
+.tag{display:inline-block;background:var(--hot);color:#fff;font-weight:700;font-size:14px;padding:2px 12px;border-radius:6px;margin-bottom:12px}
+.btn{display:inline-block;background:var(--acc);color:#04201d;font-weight:700;padding:10px 22px;border-radius:10px}
+.stage{perspective:900px;height:380px;display:grid;place-items:center}
+.globe{position:relative;width:300px;height:300px;transform-style:preserve-3d;animation:spin 26s linear infinite}
+.globe i{position:absolute;inset:0;border:1.5px solid var(--acc);border-radius:50%;opacity:.75}
+.globe i:nth-child(1){transform:rotateY(0)}.globe i:nth-child(2){transform:rotateY(30deg)}.globe i:nth-child(3){transform:rotateY(60deg)}
+.globe i:nth-child(4){transform:rotateY(90deg)}.globe i:nth-child(5){transform:rotateY(120deg)}.globe i:nth-child(6){transform:rotateY(150deg)}
+.globe i:nth-child(7){inset:14% 0;transform:rotateX(90deg)}.globe i:nth-child(8){inset:38% 0;transform:rotateX(90deg) translateZ(0);border-color:var(--hot)}
+.globe::after{content:"";position:absolute;inset:30%;border-radius:50%;background:radial-gradient(circle at 35% 30%,var(--acc),transparent 70%);filter:blur(18px);opacity:.55}
+.stage{transform:rotateX(-14deg)}
+@keyframes spin{to{transform:rotateY(360deg)}}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;padding:8px 0 56px;perspective:1100px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px;transform-style:preserve-3d;transition:transform .25s,box-shadow .25s;will-change:transform}
+.card:hover{box-shadow:0 22px 40px #0006}
+.card small{color:var(--acc);font-weight:700}
+.card h3{font-size:20px;margin:8px 0 10px;transform:translateZ(26px)}
+.card p{margin:0 0 12px;color:var(--mut);font-size:16px;transform:translateZ(12px)}
+.card time{color:var(--mut);font-size:14px}
+.card.wide{grid-column:span 2;background:linear-gradient(135deg,var(--bg2),var(--card))}
+.card.wide h3{font-size:26px}
+.card[hidden]{display:none}
+.sec{display:flex;align-items:center;gap:14px;margin:6px 0 18px}
+.sec h2{font-size:24px}.sec::after{content:"";flex:1;height:1px;background:var(--line)}
+footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--mut);font-size:15px}
+.note{background:var(--bg2);border-radius:10px;padding:10px 16px;font-size:14px;color:var(--mut);margin:18px 0 0}
+@media (max-width:860px){.hero{grid-template-columns:1fr}.stage{height:300px}.globe{width:230px;height:230px}.grid{grid-template-columns:1fr 1fr}.card.wide{grid-column:span 2}}
+@media (max-width:560px){.grid{grid-template-columns:1fr}.card.wide{grid-column:auto}}
+@media (prefers-reduced-motion:reduce){.globe,.ticker div{animation:none}.card{transition:none}}
+
+.top{flex-wrap:wrap}
+nav a{color:var(--mut);font:500 16px Tajawal,sans-serif;padding:6px 14px;border-radius:99px}
+nav a:hover{color:var(--ink)}nav a[aria-current="page"]{background:var(--acc);color:#04201d;font-weight:700}
+.lang{display:flex;gap:4px}.lang button{background:none;border:1px solid var(--line);color:var(--mut);font:500 14px Tajawal,sans-serif;padding:4px 10px;border-radius:8px;cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--ink);color:var(--bg);font-weight:700}
+.view[hidden]{display:none}
+.live-head{display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding:34px 0 14px}
+.badge{display:inline-flex;align-items:center;gap:8px;background:var(--hot);color:#fff;font-weight:800;padding:4px 14px;border-radius:99px}
+.badge::before{content:"";width:10px;height:10px;border-radius:50%;background:#fff;animation:pulse 1.2s infinite}
+@keyframes pulse{50%{opacity:.25;transform:scale(.7)}}
+.clock{color:var(--mut);font-variant-numeric:tabular-nums}
+.tl{list-style:none;margin:10px 0 56px;padding:0;border-inline-start:2px solid var(--line)}
+.tl li{position:relative;padding:0 26px 26px}
+.tl li::before{content:"";position:absolute;inset-inline-start:-7px;top:8px;width:12px;height:12px;border-radius:50%;background:var(--acc)}
+.tl li:first-child::before{background:var(--hot)}
+.tl b{color:var(--acc);font-variant-numeric:tabular-nums}
+.tl p{margin:2px 0 0}
+.card .k{color:var(--hot)}
+[dir=ltr] .ticker div{animation-name:runl}
+@keyframes runl{from{transform:translateX(0)}to{transform:translateX(-100%)}}
+</style>
 </head>
 <body>
-  <div class="topline"><div class="container"><span class="date" id="today"></span><div class="top-actions"><a href="#about">عن مرصد</a><a href="#newsletter">النشرة البريدية</a></div></div></div>
-  <header class="masthead"><div class="container masthead-row"><a class="brand" href="#home" aria-label="مرصد - الرئيسية"><span class="brand-mark"><svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><circle cx="16" cy="16" r="10.5" stroke="white" stroke-width="1.5"/><ellipse cx="16" cy="16" rx="4.5" ry="10.5" stroke="white" stroke-width="1.5"/><path d="M5.7 12h20.6M5.7 20h20.6" stroke="white" stroke-width="1.5"/></svg></span><span><span class="brand-name">مَرْصَد</span><span class="brand-sub">الأخبار السياسية كما تحدث</span></span></a><p class="masthead-note">نرصد المشهد، نتحقق من التفاصيل، ونقدم سياقاً يساعدك على الفهم.</p></div></header>
-  <nav class="nav-wrap" aria-label="التنقل الرئيسي"><div class="container nav-row"><div class="nav-links"><a class="active" href="#home">الرئيسية</a><a href="#latest">آخر الأخبار</a><a href="#region">الشرق الأوسط</a><a href="#world">العالم</a><a href="#analysis">تحليلات</a><a href="#about">ملفات</a></div><label class="search" aria-label="البحث"><span aria-hidden="true">⌕</span><input id="searchInput" type="search" placeholder="ابحث هنا" autocomplete="off"></label></div></nav>
-  <div class="ticker"><div class="container ticker-inner"><span class="ticker-label">في الواجهة</span><p>منصة مرصد التجريبية — أضف الأخبار الحقيقية والمصادر التحريرية قبل الإطلاق للقراء.</p></div></div>
-  <main id="home" class="container">
-    <section class="hero" aria-labelledby="hero-title"><div class="hero-copy reveal"><div class="eyebrow">قراءة المشهد السياسي</div><h1 id="hero-title">ما وراء العناوين،<br>نرصد ما يصنع القرار.</h1><p>من المنطقة إلى العالم؛ متابعة سياسية تضع الحدث في سياقه، وتمنحك مساحة أوسع لفهم التحولات.</p><div class="story-meta"><span>مرصد | هيئة التحرير</span><i class="dot"></i><time id="heroDate"></time></div><a class="read-link" href="#latest">اكتشف تغطيتنا <span>←</span></a></div><div class="hero-art reveal" aria-label="رسم ثلاثي الأبعاد تجريدي للكرة الأرضية"><div class="art-grid"></div><div class="orb"><span class="orb-line"></span></div><div class="art-caption"><i></i> السياسة — من زاوية أوسع</div></div></section>
-    <div class="demo-note"><strong>ملاحظة قبل الإطلاق:</strong> هذا قالب موقع جاهز للتصميم، والمحتوى الظاهر أدناه تجريبي وليس أخباراً حقيقية أو تغطية مباشرة. أضف تقاريرك ومصادرك المعتمدة قبل نشر الموقع للجمهور.</div>
-    <section id="latest" class="news-layout"><div><div class="section-head"><h2 class="section-title">أحدث التغطيات</h2><a class="more" href="#latest">كل الأخبار ←</a></div><div class="news-grid" id="newsGrid">
-      <article class="card reveal" data-search="الشرق الأوسط الدبلوماسية المنطقة"><div class="card-image"><span class="category">الشرق الأوسط</span><span class="visual" aria-hidden="true">MENA</span></div><div class="card-content"><h3>كيف تُرسم أولويات المنطقة في مرحلة التحولات؟</h3><p>قراءة تمهيدية في الملفات السياسية التي تتصدر النقاش الإقليمي، والعوامل التي تصوغ مواقف الأطراف.</p><div class="story-meta"><span>ملف تحليلي تجريبي</span><i class="dot"></i><span>٥ دقائق</span></div></div></article>
-      <article class="card reveal" data-search="العالم السياسة الدولية العلاقات"><div class="card-image tone2"><span class="category">العالم</span><span class="visual" aria-hidden="true">WORLD</span></div><div class="card-content"><h3>السياسة الدولية: ما الذي يغيّر موازين الحوار؟</h3><p>نظرة إلى أدوات التفاوض والحوار، وكيف تؤثر المصالح المشتركة في مسارات العلاقات الدولية.</p><div class="story-meta"><span>مادة تعريفية تجريبية</span><i class="dot"></i><span>٤ دقائق</span></div></div></article>
-      <article class="card reveal" data-search="اقتصاد السياسة الطاقة"><div class="card-image tone3"><span class="category">سياسة واقتصاد</span><span class="visual" aria-hidden="true">ECO</span></div><div class="card-content"><h3>حين تلتقي السياسة بالاقتصاد: قراءة في ترابط الملفات</h3><p>كيف تتقاطع خيارات السياسات العامة مع الاقتصاد والطاقة والتجارة في صناعة القرار.</p><div class="story-meta"><span>شرح تجريبي</span><i class="dot"></i><span>٦ دقائق</span></div></div></article>
-      <article class="card reveal" data-search="انتخابات الديمقراطية العالم"><div class="card-image tone4"><span class="category">انتخابات</span><span class="visual" aria-hidden="true">VOTE</span></div><div class="card-content"><h3>الانتخابات والسياسات العامة: أسئلة تتجاوز صناديق الاقتراع</h3><p>دليل مبسط لفهم أثر البرامج الانتخابية والمؤسسات في تشكيل السياسات ومتابعة تنفيذها.</p><div class="story-meta"><span>دليل تجريبي</span><i class="dot"></i><span>٧ دقائق</span></div></div></article>
-      <article class="card reveal" data-search="الشرق الأوسط الأمن الإقليمي"><div class="card-image tone5"><span class="category">الشرق الأوسط</span><span class="visual" aria-hidden="true">REGION</span></div><div class="card-content"><h3>الأمن الإقليمي في عيون صانعي السياسات</h3><p>مصطلحات ومحاور تساعد القارئ على متابعة النقاشات المتعلقة بالأمن والاستقرار.</p><div class="story-meta"><span>خلفية تجريبية</span><i class="dot"></i><span>٥ دقائق</span></div></div></article>
-      <article class="card reveal" data-search="تحليل دبلوماسية مفاوضات"><div class="card-image tone6"><span class="category">تحليل</span><span class="visual" aria-hidden="true">DIPLO</span></div><div class="card-content"><h3>الدبلوماسية في الممارسة: من الرسائل إلى النتائج</h3><p>مفاتيح لقراءة المسارات الدبلوماسية، وأهمية التمييز بين التصريحات والخطوات العملية.</p><div class="story-meta"><span>تحليل تجريبي</span><i class="dot"></i><span>٨ دقائق</span></div></div></article>
-    </div><div class="analysis reveal" id="analysis"><div><div class="eyebrow">مساحة رأي وتحليل</div><h3>السياق أولاً، ثم الخبر.</h3><p>تحليلات معمقة تشرح خلفيات الأحداث وتعدد وجهات النظر.</p></div><a class="read-link" href="#about">اكتشف الملفات <span>←</span></a></div></div>
-    <aside class="side-column"><section class="side-panel reveal" id="region"><h3>على طاولة النقاش</h3><div class="brief-item"><strong><span class="brief-number">01</span>الدبلوماسية ومسارات الحوار</strong><small>موضوع متابعة تجريبي</small></div><div class="brief-item"><strong><span class="brief-number">02</span>السياسات العامة وأثرها</strong><small>موضوع متابعة تجريبي</small></div><div class="brief-item"><strong><span class="brief-number">03</span>العلاقات الدولية المتغيرة</strong><small>موضوع متابعة تجريبي</small></div><div class="brief-item"><strong><span class="brief-number">04</span>الاقتصاد في النقاش السياسي</strong><small>موضوع متابعة تجريبي</small></div></section>
-      <section class="side-panel newsletter reveal" id="newsletter"><h3>رسالة مرصد</h3><p>اشترك لتصلك نشرتنا البريدية عند إطلاقها.</p><form id="newsletterForm"><input type="email" placeholder="بريدك الإلكتروني" aria-label="بريدك الإلكتروني" required><button type="submit">سجّل</button></form><small class="newsletter-note">نموذج توضيحي — يتطلب ربطاً بخدمة بريدية لإرسال الاشتراكات.</small></section>
-      <section class="side-panel reveal" id="world"><h3>مواضيع للمتابعة</h3><div class="topics"><a href="#region">الشرق الأوسط</a><a href="#world">العلاقات الدولية</a><a href="#analysis">تحليلات</a><a href="#latest">انتخابات</a><a href="#latest">سياسة واقتصاد</a><a href="#latest">دبلوماسية</a></div></section></aside>
-    </section>
-  </main>
-  <footer class="footer" id="about"><div class="container footer-row"><div><a class="footer-brand" href="#home">مَرْصَد</a><div>منصة عربية مستقلة لمتابعة الأخبار والتحليلات السياسية.</div></div><div class="footer-links"><a href="#about">من نحن</a><a href="#about">سياسة التحرير</a><a href="mailto:editor@example.com">تواصل مع التحرير</a></div><span>© <span id="year"></span> مرصد. قالب تجريبي قابل للتخصيص.</span></div></footer>
-  <div class="toast" id="toast" role="status" aria-live="polite"></div>
-  <script>
-    const now=new Date();
-    const fmt=new Intl.DateTimeFormat('ar', {weekday:'long',year:'numeric',month:'long',day:'numeric'});
-    document.getElementById('today').textContent=fmt.format(now);
-    document.getElementById('heroDate').textContent=new Intl.DateTimeFormat('ar',{day:'numeric',month:'long',year:'numeric'}).format(now);
-    document.getElementById('year').textContent=now.getFullYear();
-    const cards=[...document.querySelectorAll('.card')];
-    document.getElementById('searchInput').addEventListener('input',e=>{const q=e.target.value.trim().toLowerCase();cards.forEach(card=>{card.hidden=q&&!((card.dataset.search+' '+card.innerText).toLowerCase().includes(q))})});
-    const toast=document.getElementById('toast');let toastTimer;
-    function notify(message){toast.textContent=message;toast.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>toast.classList.remove('show'),4000)}
-    document.getElementById('newsletterForm').addEventListener('submit',e=>{e.preventDefault();notify('هذا نموذج تجريبي. اربطه بخدمة بريدية لتفعيل الاشتراك.');e.target.reset()});
-    if('IntersectionObserver' in window){const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target)}}),{threshold:.12});document.querySelectorAll('.reveal').forEach(el=>observer.observe(el))}else document.querySelectorAll('.reveal').forEach(el=>el.classList.add('visible'));
-  </script>
+<div class="ticker"><b data-t="brk"></b><div id="tick"></div></div>
+<div class="wrap">
+<header class="top">
+ <a class="brand" href="#home" aria-label="MH"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="40" height="40" aria-hidden="true"><rect width="512" height="512" rx="112" fill="#0e1623"/><g transform="translate(256 256) scale(.8) translate(-256 -256)" fill="none" stroke-width="34" stroke-linecap="round" stroke-linejoin="round"><path d="M84 376V136L160 266L236 136V376" stroke="#2ec4b6"/><path d="M300 136V376M420 136V376M300 256H420" stroke="#eef2f8"/></g><circle cx="256" cy="446" r="13" fill="#ff5a4f"/></svg><span class="logo" id="logo"></span></a>
+ <nav id="nav"></nav>
+ <div class="lang" id="lang"><button data-l="ar">العربية</button><button data-l="ku">کوردی</button><button data-l="en">English</button></div>
+ <button class="theme" id="theme" type="button">&#9680;</button>
+</header>
+
+<section class="view" id="v-home">
+ <div class="hero">
+  <div><span class="tag" data-t="tag"></span><h1 data-t="h1"></h1><p data-t="hp"></p><a class="btn" href="#live" data-t="btn"></a></div>
+  <div class="stage" aria-hidden="true"><div class="globe"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+ </div>
+ <div class="sec"><h2 data-t="latest"></h2></div>
+ <div class="grid" id="g-news"></div>
+</section>
+
+<section class="view" id="v-live" hidden>
+ <div class="live-head"><span class="badge" data-t="live"></span><h2 data-t="liveT"></h2><span class="clock" id="clock"></span></div>
+ <ul class="tl" id="tl"></ul>
+</section>
+
+<section class="view" id="v-books" hidden>
+ <div class="sec" style="padding-top:34px"><h2 data-t="booksT"></h2></div>
+ <div class="grid" id="g-books"></div>
+</section>
+
+<section class="view" id="v-ai" hidden>
+ <div class="sec" style="padding-top:34px"><h2 data-t="aiT"></h2></div>
+ <div class="grid" id="g-ai"></div>
+</section>
+<p class="note" data-t="note"></p>
+</div>
+<footer><div class="wrap" data-t="foot"></div></footer>
+<script>
+var D={
+ar:{dir:"rtl",loc:"ar-IQ-u-nu-latn",logo:"الأ<i>ف</i>ق",title:"الأفق | أخبار سياسية",brk:"عاجل",
+nav:["الرئيسية","مباشر","كتب وبحوث","ذكاء اصطناعي"],
+tick:["عنوان عاجل تجريبي ١","عنوان عاجل تجريبي ٢","عنوان عاجل تجريبي ٣","عنوان عاجل تجريبي ٤"],
+tag:"الخبر الرئيسي",h1:"عنوان الخبر السياسي الأبرز يظهر هنا بخط كبير وواضح",hp:"مقدمة قصيرة تلخّص الخبر: ماذا حدث، ومن المعني، وما الذي يترقبه القراء لاحقاً.",btn:"تابع البث المباشر",
+latest:"آخر الأخبار",live:"مباشر",liveT:"التغطية المباشرة",booksT:"كتب وبحوث",aiT:"ذكاء اصطناعي",
+note:"كل العناوين والنصوص في هذه الصفحة محتوى تجريبي لعرض التصميم، وليست أخباراً حقيقية.",foot:"© 2026 الأفق. جميع الحقوق محفوظة.",
+news:[["محلي","عنوان خبر محلي رئيسي تجريبي","قبل ساعة",1],["إقليمي","عنوان خبر إقليمي تجريبي","قبل ساعتين"],["دولي","عنوان خبر دولي تجريبي","قبل 3 ساعات"],["اقتصاد","عنوان خبر اقتصادي تجريبي","قبل 4 ساعات"],["محلي","عنوان خبر محلي آخر","قبل 5 ساعات"],["دولي","عنوان خبر دولي بارز تجريبي","أمس",1]],
+liveL:[["14:20","تحديث تجريبي: أحدث ما وصل إلى غرفة الأخبار."],["13:45","تحديث تجريبي: تصريح رسمي جديد قيد المراجعة."],["12:30","تحديث تجريبي: بدء جلسة نقاش مفتوحة."],["11:05","تحديث تجريبي: ملخص أبرز أحداث الصباح."]],
+books:[["كتاب","كتاب تجريبي عن السياسة في المنطقة","وصف قصير للكتاب ولماذا يستحق القراءة."],["بحث","بحث تجريبي عن الانتخابات والمشاركة","ملخص قصير للبحث ونتائجه الرئيسية."],["كتاب","كتاب تجريبي عن تاريخ الدبلوماسية","وصف قصير للكتاب ولماذا يستحق القراءة."],["بحث","دراسة تجريبية عن الإعلام والرأي العام","ملخص قصير للدراسة ونتائجها الرئيسية."]],
+ai:[["ذكاء اصطناعي","الذكاء الاصطناعي في غرف الأخبار","نص تجريبي عن استخدام الأدوات الذكية في التحقق من الأخبار."],["ذكاء اصطناعي","تنظيم الذكاء الاصطناعي حول العالم","نص تجريبي عن القوانين والسياسات المطروحة."],["ذكاء اصطناعي","التضليل الرقمي وكيف نكشفه","نص تجريبي عن الصور والمقاطع المصنّعة."]]},
+ku:{dir:"rtl",loc:"ar-IQ-u-nu-latn",logo:"ئا<i>س</i>ۆ",title:"ئاسۆ | خەبەرێن سیاسی",brk:"لەز",
+nav:["پەرا سەرەکی","ڕاستەوخۆ","پەرتووک و ڤەکۆلین","ژیریا دەستکرد"],
+tick:["سەردێرێ لەز یێ نموونە ١","سەردێرێ لەز یێ نموونە ٢","سەردێرێ لەز یێ نموونە ٣","سەردێرێ لەز یێ نموونە ٤"],
+tag:"خەبەرا سەرەکی",h1:"سەردێرێ خەبەرا سیاسی یا هەری گرنگ ل ڤێرە دیار دبیت",hp:"کورتیەکا کورت یا خەبەری: چ ڕویدا، کی پەیوەندیدارە، و خوێنەر چ چاڤەڕێ دکەن.",btn:"ڕاستەوخۆ ببینە",
+latest:"خەبەرێن دوماهیێ",live:"ڕاستەوخۆ",liveT:"ڤەگوهاستنا ڕاستەوخۆ",booksT:"پەرتووک و ڤەکۆلین",aiT:"ژیریا دەستکرد",
+note:"هەمی سەردێر و نڤیسێن ڤێ پەرێ نموونەنە بۆ نیشادانا دیزاینی، خەبەرێن ڕاستەقینە نینن.",foot:"© 2026 ئاسۆ. هەمی ماف پارێزراوینە.",
+news:[["ناڤخۆیی","سەردێرێ خەبەرەکا ناڤخۆیی یا سەرەکی (نموونە)","1 دەمژمێر بەری نها",1],["هەرێمی","سەردێرێ خەبەرەکا هەرێمی","2 دەمژمێر بەری نها"],["جیهانی","سەردێرێ خەبەرەکا جیهانی","3 دەمژمێر بەری نها"],["ئابووری","سەردێرێ خەبەرەکا ئابووری","4 دەمژمێر بەری نها"],["ناڤخۆیی","سەردێرێ خەبەرەکا دی یا ناڤخۆیی","5 دەمژمێر بەری نها"],["جیهانی","سەردێرێ خەبەرەکا جیهانی یا گرنگ","دوهی",1]],
+liveL:[["14:20","نویکرنا نموونە: نوێترین تشت یێ گەهشتی ژوورا خەبەران."],["13:45","نویکرنا نموونە: بەیانەکا فەرمی یا نوی ل بەر هەلسەنگاندنێیە."],["12:30","نویکرنا نموونە: ڕونشتنەکا ئاخڤتنا ڤەکری دەستپێکر."],["11:05","نویکرنا نموونە: کورتیا ڕویدانێن سپێدەی."]],
+books:[["پەرتووک","پەرتووکەکا نموونە ل سەر سیاسەتا ناڤچەیێ","ناساندنەکا کورت یا پەرتووکێ و بۆچی یا هێژایی خواندنێیە."],["ڤەکۆلین","ڤەکۆلینەکا نموونە ل سەر هەلبژارتن و بەشداریێ","کورتیا ڤەکۆلینێ و ئەنجامێن وێ یێن سەرەکی."],["پەرتووک","پەرتووکەکا نموونە ل سەر مێژوویا دیپلۆماسیێ","ناساندنەکا کورت یا پەرتووکێ و بۆچی یا هێژایی خواندنێیە."],["ڤەکۆلین","ڤەکۆلینەکا نموونە ل سەر میدیا و ڕایا گشتی","کورتیا ڤەکۆلینێ و ئەنجامێن وێ یێن سەرەکی."]],
+ai:[["ژیریا دەستکرد","ژیریا دەستکرد د ژوورێن خەبەران دا","نڤیسەکا نموونە ل سەر بکارئینانا ئامرازێن ژیر بۆ پشتڕاستکرنا خەبەران."],["ژیریا دەستکرد","ڕێکخستنا ژیریا دەستکرد ل جیهانێ","نڤیسەکا نموونە ل سەر یاسا و سیاسەتێن هاتینە پێشنیارکرن."],["ژیریا دەستکرد","درەوێن دیجیتاڵ و چەوانیا دیتنا وان","نڤیسەکا نموونە ل سەر وێنە و ڤیدیۆیێن دروستکری."]]},
+en:{dir:"ltr",loc:"en-GB",logo:"Hori<i>z</i>on",title:"Horizon | Political News",brk:"Breaking",
+nav:["Home","Live","Books & Research","AI"],
+tick:["Sample breaking headline 1","Sample breaking headline 2","Sample breaking headline 3","Sample breaking headline 4"],
+tag:"Top story",h1:"The most important political headline appears here in large, clear type",hp:"A short intro that sums up the story: what happened, who is involved, and what readers should watch next.",btn:"Follow the live coverage",
+latest:"Latest news",live:"LIVE",liveT:"Live coverage",booksT:"Books & research",aiT:"Artificial intelligence",
+note:"All headlines and text on this page are sample content to show the design. They are not real news.",foot:"© 2026 Horizon. All rights reserved.",
+news:[["Local","Sample lead local headline","1 hour ago",1],["Regional","Sample regional headline","2 hours ago"],["World","Sample world headline","3 hours ago"],["Economy","Sample economy headline","4 hours ago"],["Local","Another sample local headline","5 hours ago"],["World","Sample major world headline","Yesterday",1]],
+liveL:[["14:20","Sample update: the latest to reach the newsroom."],["13:45","Sample update: a new official statement is under review."],["12:30","Sample update: an open discussion session has begun."],["11:05","Sample update: summary of this morning's main events."]],
+books:[["Book","Sample book on regional politics","A short description of the book and why it is worth reading."],["Research","Sample study on elections and participation","A short summary of the study and its main findings."],["Book","Sample book on the history of diplomacy","A short description of the book and why it is worth reading."],["Research","Sample study on media and public opinion","A short summary of the study and its main findings."]],
+ai:[["AI","AI in the newsroom","Sample text on using smart tools to verify news."],["AI","AI regulation around the world","Sample text on proposed laws and policies."],["AI","Digital disinformation and how to spot it","Sample text on synthetic images and video."]]}};
+var V=["home","live","books","ai"],L="ar",root=document.documentElement;
+function card(k,t,p,tm,w){return '<article class="card'+(w?' wide':'')+'"><small class="k">'+k+'</small><h3>'+t+'</h3>'+(p?'<p>'+p+'</p>':'')+(tm?'<time>'+tm+'</time>':'')+'</article>'}
+function render(){var d=D[L];root.lang=L==="ku"?"ku":L;root.dir=d.dir;document.title=d.title;
+ document.querySelectorAll("[data-t]").forEach(function(e){e.textContent=d[e.dataset.t]});
+ document.getElementById("logo").innerHTML=d.logo;
+ document.getElementById("tick").innerHTML=d.tick.concat(d.tick).map(function(x){return "<span>"+x+"</span>"}).join("");
+ document.getElementById("g-news").innerHTML=d.news.map(function(n){return card(n[0],n[1],"",n[2],n[3])}).join("");
+ document.getElementById("g-books").innerHTML=d.books.map(function(n){return card(n[0],n[1],n[2])}).join("");
+ document.getElementById("g-ai").innerHTML=d.ai.map(function(n){return card(n[0],n[1],n[2])}).join("");
+ document.getElementById("tl").innerHTML=d.liveL.map(function(n){return "<li><b>"+n[0]+"</b><p>"+n[1]+"</p></li>"}).join("");
+ document.querySelectorAll("#lang button").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.l===L)});
+ route();clock()}
+function route(){var h=(location.hash||"#home").slice(1);if(V.indexOf(h)<0)h="home";
+ V.forEach(function(v){document.getElementById("v-"+v).hidden=v!==h});
+ document.getElementById("nav").innerHTML=V.map(function(v,i){return '<a href="#'+v+'"'+(v===h?' aria-current="page"':'')+'>'+D[L].nav[i]+'</a>'}).join("")}
+function clock(){document.getElementById("clock").textContent=new Date().toLocaleTimeString(D[L].loc)}
+addEventListener("hashchange",route);setInterval(clock,1000);
+document.getElementById("lang").addEventListener("click",function(e){var l=e.target.dataset.l;if(l){L=l;try{localStorage.setItem("lang",l)}catch(x){}render()}});
+try{var sv=localStorage.getItem("lang");if(D[sv])L=sv}catch(x){}
+var rm=matchMedia("(prefers-reduced-motion:reduce)").matches;
+if(!rm)document.addEventListener("pointermove",function(e){var k=e.target.closest&&e.target.closest(".card");if(!k)return;var r=k.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;k.style.transform="rotateY("+(x*12)+"deg) rotateX("+(-y*12)+"deg) translateZ(8px)"});
+document.addEventListener("pointerout",function(e){var k=e.target.closest&&e.target.closest(".card");if(k)k.style.transform=""});
+document.getElementById("theme").addEventListener("click",function(){var dk=root.dataset.theme?root.dataset.theme==="dark":matchMedia("(prefers-color-scheme:dark)").matches;root.dataset.theme=dk?"light":"dark"});
+render();
+if("serviceWorker" in navigator&&location.protocol.indexOf("http")===0)addEventListener("load",function(){navigator.serviceWorker.register("sw.js").catch(function(){})});
+</script>
 </body>
 </html>
