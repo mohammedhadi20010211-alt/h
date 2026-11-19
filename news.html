@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>الأفق | الأخبار السياسية</title>
+<style>
+:root{--bg:#0e1623;--card:#142033;--line:#27364d;--ink:#eef2f8;--mut:#9fb0c8;--acc:#2ec4b6;--hot:#ff5a4f}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.8 Tahoma,Arial,sans-serif}.wrap{max-width:1180px;margin:auto;padding:0 20px}header{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px 0;border-bottom:1px solid var(--line)}header a{color:var(--acc);text-decoration:none}.brand{font-size:26px;font-weight:800}.tools{display:flex;gap:8px}.tools button{background:transparent;border:1px solid var(--line);color:var(--mut);border-radius:20px;padding:6px 10px;cursor:pointer}.tools button.active{background:var(--acc);color:#05201d}.hero{padding:32px 0}.hero h1{font-size:42px;line-height:1.4;margin:8px 0}.hero p{color:var(--mut)}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;padding:10px 0 50px}.card{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden}.card a{display:block;color:inherit;text-decoration:none;height:100%;padding:20px}.card small{color:var(--acc)}.card h2{font-size:19px;line-height:1.6;margin:10px 0}.card p{color:var(--mut);font-size:14px}.card:hover{border-color:var(--acc)}.status{border:1px solid var(--line);border-radius:10px;padding:12px;color:var(--mut);margin-bottom:12px}footer{border-top:1px solid var(--line);padding:22px;color:var(--mut)}@media(max-width:850px){.grid{grid-template-columns:repeat(2,1fr)}}@media(max-width:560px){.wrap{padding:0 14px}.grid{grid-template-columns:1fr}.hero h1{font-size:30px}}
+</style></head><body><div class="wrap">
+<header><a class="brand" href="./">الأفق</a><a href="./#books">كتب وبحوث</a><div class="tools"><button data-q="سياسة العراق" class="active">العراق</button><button data-q="الأزمة السياسية">السياسة</button><button data-q="العلاقات الدولية">العالم</button></div></header>
+<section class="hero"><span style="background:var(--hot);padding:4px 12px;border-radius:8px;font-weight:bold">مباشر/مجدّد</span><h1>الأخبار السياسية</h1><p>لذلك الأخبار المعلنة و المصادر االرسمية معروضة في عرض مباشر لاختبار عجل.</p></section>
+<div id="status" class="status">جاري تحميل آخر العناوين…</div><div class="grid" id="news"></div>
+<footer>الأفق — روابط إعلامية; لا تمثل الصفحة انتماءً إعلاميًا لأي جهة.</footer></div>
+<script>
+const feeds={
+ ar:'https://news.google.com/rss/search?q={q}&hl=ar&gl=IQ&ceid=IQ:ar',
+ en:'https://news.google.com/rss/search?q={q}&hl=en&gl=US&ceid=US:en'
+};
+async function load(q){
+ const status=document.getElementById('status'),grid=document.getElementById('news');status.textContent='جاري تحميل آخر العناوين…';grid.innerHTML='';
+ try{
+  const rss=feeds.ar.replace('{q}',encodeURIComponent(q));
+  const url='https://api.rss2json.com/v1/api.json?count=12&rss_url='+encodeURIComponent(rss);
+  const r=await fetch(url);if(!r.ok)throw Error('network');const data=await r.json();if(data.status!=='ok'||!data.items?.length)throw Error('feed');
+  status.textContent='آخر تحديث: '+new Date().toLocaleString('ar-IQ')+' — '+q;
+  grid.innerHTML=data.items.map(x=>`<article class="card"><a href="${x.link}" target="_blank" rel="noopener"><small>${x.author||x.source_id||'مصدر إخباري'}</small><h2>${x.title}</h2><p>${new Date(x.pubDate).toLocaleString('ar-IQ')}</p></a></article>`).join('');
+ }catch(e){
+  status.textContent='تعذر تحميل الموجز التلقائي. افتح المصادر المباشرة:';
+  grid.innerHTML=`<article class="card"><a href="https://news.google.com/search?q=سياسة%20العراق&hl=ar&gl=IQ&ceid=IQ:ar" target="_blank"><small>Google News</small><h2>سياسة العراق والعالم العربي</h2><p>الموجز المباشر حسب المصدر</p></a></article><article class="card"><a href="https://www.reuters.com/world/middle-east/" target="_blank"><small>Reuters</small><h2>أخبار الشرق الأوسط والعراق</h2><p>وكالة رويترز</p></a></article><article class="card"><a href="https://www.aljazeera.net/politics" target="_blank"><small>الجزيرة</small><h2>آخر التطورات السياسية</h2><p>القسم السياسي</p></a></article>`;
+ }
+}
+document.querySelectorAll('[data-q]').forEach(b=>b.onclick=()=>{document.querySelectorAll('[data-q]').forEach(x=>x.classList.remove('active'));b.classList.add('active');load(b.dataset.q)});load('سياسة العراق');
+</script></body></html>
