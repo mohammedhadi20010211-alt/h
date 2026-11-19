@@ -3,15 +3,38 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#0e1623">
 <title>الأمير — قارئ الأفق</title>
 <style>
-:root{color-scheme:dark;--bg:#0e1623;--card:#142033;--line:#27364d;--ink:#eef2f8;--mut:#9fb0c8;--accent:#2ec4b6}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.7 system-ui,-apple-system,"Segoe UI",sans-serif}.bar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px max(16px,calc((100vw - 1200px)/2));background:var(--card);border-bottom:1px solid var(--line)}.bar a{color:var(--accent);text-decoration:none}.title{font-weight:700}.hint{max-width:1200px;margin:10px auto;padding:0 16px;color:var(--mut);font-size:14px}.viewer{display:block;width:min(1200px,100%);height:calc(100vh - 105px);min-height:420px;margin:0 auto;border:1px solid var(--line);background:#fff}
+:root{color-scheme:dark;--bg:#0e1623;--card:#142033;--line:#27364d;--ink:#eef2f8;--mut:#9fb0c8;--accent:#2ec4b6}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:18px/1.9 system-ui,-apple-system,"Segoe UI",Tahoma,sans-serif}.bar{position:sticky;top:0;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px max(16px,calc((100vw - 900px)/2));background:var(--card);border-bottom:1px solid var(--line)}.bar a{color:var(--accent);text-decoration:none}.title{font-weight:700}.actions{display:flex;gap:8px}.actions button{border:1px solid var(--line);border-radius:8px;background:transparent;color:var(--ink);padding:6px 10px;cursor:pointer}.reader{width:min(900px,calc(100% - 28px));margin:22px auto 50px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:28px}.reader h1{text-align:center;margin:0 0 6px}.meta{text-align:center;color:var(--mut);font-size:14px}.text{white-space:pre-wrap;direction:ltr;text-align:left;font-family:Georgia,"Times New Roman",serif;font-size:17px;line-height:1.75}.loading{text-align:center;color:var(--mut);padding:40px}.error{text-align:center;color:#ffb4ae;padding:30px}@media print{body{background:#fff;color:#111}.bar,.actions{display:none}.reader{width:100%;margin:0;border:0;background:#fff;padding:0}.text{color:#111}}
 </style>
 </head>
 <body>
-<header class="bar"><a href="../#books">← العودة إلى كتب وبحوث الأفق</a><span class="title">الأمير — نيكولا ميكيافيلي</span></header>
-<p class="hint">يُعرض ملف PDF داخل صفحة الأفق. مصدر الملف خارجي من رابط الجامعة الذي أرسلته؛ قد يمنع الخادم الأصلي العرض المضمّن.</p>
-<iframe class="viewer" title="كتاب الأمير بصيغة PDF" src="https://law.uodiyala.edu.iq/uploads/pdf/e%20book/%D9%83%D8%AA%D8%A7%D8%A8%20%D8%A7%D9%84%D8%A3%D9%85%D9%8A%D8%B1-%20%D9%86%D9%8A%D9%83%D9%88%D9%84%D8%A7%20%D9%85%D9%8A%D9%83%D9%8A%D8%A7%D9%81%D9%8A%D9%84%D9%8A.pdf" loading="eager" referrerpolicy="no-referrer"></iframe>
+<header class="bar"><a href="../#books">← العودة إلى كتب وبحوث الأفق</a><span class="title">الأمير</span><span class="actions"><button id="bigger">A+</button><button id="print">طباعة</button></span></header>
+<main class="reader">
+<h1>The Prince</h1>
+<div class="meta">Niccolò Machiavelli — ترجمة W. K. Marriott — نص عام ضمن مشروع Project Gutenberg</div>
+<div id="content" class="loading">جاري تحميل الكتاب داخل صفحة الأفق…</div>
+</main>
+<script>
+const sources=[
+ 'https://www.gutenberg.org/cache/epub/1232/pg1232.txt',
+ 'https://raw.githubusercontent.com/Nash232305/Proyecto-Huffman-Paralelo/e8039ab6a75689b9573d6ad6cbe3f5407a4/data/The%20Prince%20by%20Niccol%C3%B2%20Machiavelli.txt'
+];
+async function loadBook(){
+ let text='';
+ for(const url of sources){
+  try{const r=await fetch(url,{mode:'cors'});if(r.ok){text=await r.text();break}}
+  catch(e){}
+ }
+ const el=document.getElementById('content');
+ if(!text){el.className='error';el.textContent='تعذر تحميل نص المشروع Gutenberg. تحقق من اتصال الإنترنت ثم أعد المحاولة.';return}
+ const start=text.indexOf('*** START OF THE PROJECT GUTENBERG EBOOK');
+ const end=text.indexOf('*** END OF THE PROJECT GUTENBERG EBOOK');
+ if(start>=0)text=text.slice(text.indexOf('\n',start)+1);
+ if(end>=0)text=text.slice(0,end);
+ el.className='text';el.textContent=text.trim();
+}
+let size=17;document.getElementById('bigger').onclick=()=>{size=Math.min(30,size+2);document.querySelector('.text').style.fontSize=size+'px'};document.getElementById('print').onclick=()=>print();loadBook();
+</script>
 </body>
 </html>
