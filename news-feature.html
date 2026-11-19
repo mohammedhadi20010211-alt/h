@@ -1,0 +1,23 @@
+
+<script>
+(function(){
+  const grid=document.getElementById('news');
+  if(!grid)return;
+  function addFeatured(){
+    if(document.getElementById('rudaw-featured'))return;
+    const card=document.createElement('article');
+    card.className='card';
+    card.id='rudaw-featured';
+    card.innerHTML=`<a href="https://www.rudaw.net/english/categories/kurdistan/1080134" target="_blank" rel="noopener noreferrer">
+      <small>رووداو — كردستان</small>
+      <h2>ألمانيا تعد بالتزام دعم مستمر لكردستان والعراق رغم انسحاب القوات</h2>
+      <p>أكد مسؤولون ألمان في أربيل استمرار وتعزيز التعاون مع العراق وإقليم كردستان، رغم انسحاب القوات، مع دعم مشاريع الإعمار والمياه والاستثمار والاستقرار الإقليمي.</p>
+      <small>18 نوفمبر 2026</small>
+    </a>`;
+    grid.prepend(card);
+  }
+  addFeatured();
+  const observer=new MutationObserver(()=>{ if(!document.getElementById('rudaw-featured')) addFeatured(); });
+  observer.observe(grid,{childList:true});
+})();
+</script>
