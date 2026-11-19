@@ -1,12 +1,13 @@
-# تشغيل محادثة Gemini داخل موقع الأفق
+# إعداد محادثة Gemini داخل موقع الأفق
 
-أُضيفت واجهة المحادثة وواجهة API كـ Cloudflare Pages Function. لا يمكن تشغيل هذه الوظيفة على GitHub Pages وحده؛ يجب نشر الموقع على Cloudflare Pages لكي يعمل المسار `/api/chat`.
+الكود موجود في المستودع، لكن GitHub Pages وحده لا يشغّل واجهة API. لن تظهر إجابات Gemini على رابط GitHub Pages؛ انشر المشروع على Cloudflare Pages أولًا.
 
-## الإعداد
+## خطوات التشغيل
 
-1. اربط مستودع `mohammedhadi20010211-alt/h` بمشروع Cloudflare Pages، واجعل مجلد البناء هو جذر المستودع، واترك أمر البناء فارغًا للموقع الثابت.
-2. من **Settings → Variables and Secrets** أضف `GEMINI_API_KEY` كـ **Secret**. أنشئ المفتاح في Google AI Studio، ولا تضعه في ملفات الموقع أو GitHub.
-3. (اختياري) أضف `GEMINI_MODEL` كمتغير، والقيمة الافتراضية `gemini-2.5-flash`.
-4. أعد النشر، ثم افتح `/chat.html` على نطاق Cloudflare Pages. نموذج المحادثة يتصل بالمسار النسبي `/api/chat`، والمفتاح يبقى في الخادم.
+1. في Cloudflare Pages أنشئ مشروعًا واربطه بمستودع `mohammedhadi20010211-alt/h`، واجعل مجلد البناء جذر المستودع. لا يلزم أمر بناء لموقع HTML الثابت.
+2. أنشئ مفتاح Gemini من Google AI Studio.
+3. في Cloudflare افتح مشروع Pages ثم **Settings → Variables and Secrets**، وأضف متغيرًا سرّيًا (Secret) باسم `GEMINI_API_KEY` والصق المفتاح في قيمة السر. لا تضفه إلى GitHub أو ملفات HTML، ولا ترسله في المحادثة.
+4. احفظ الإعداد وأعد نشر المشروع. واجهة API موجودة في `functions/api/chat.js`، ومسارها `/api/chat`.
+5. افتح `https://<اسم-مشروعك>.pages.dev/chat.html`، ثم أرسل رسالة تجريبية.
 
-لا تشارك مفتاح API علنًا. راجع حدود الاستخدام والفوترة في حساب Google قبل تفعيل الخدمة.
+اختياري: أضف متغيرًا عاديًا باسم `GEMINI_MODEL` لتحديد النموذج؛ الافتراضي `gemini-2.5-flash`. راجع حدود الاستخدام والفوترة في حساب Google. احمِ نقطة API من الاستخدام المسيء إذا كان الموقع عامًا.
