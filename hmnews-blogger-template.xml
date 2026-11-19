@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html b:version='2' class='v2' expr:dir='data:blog.languageDirection' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+<head>
+<meta content='width=device-width, initial-scale=1, viewport-fit=cover' name='viewport'/>
+<meta content='#09090b' name='theme-color'/>
+<title><data:blog.pageTitle/></title>
+<b:include data='blog' name='all-head-content'/>
+<link href='https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@500;800&amp;family=Noto+Naskh+Arabic:wght@400;600&amp;family=Noto+Sans:wght@500;800&amp;display=swap' rel='stylesheet'/>
+<b:skin><![CDATA[
+:root{--bg:#09090b;--bg2:#17171c;--ink:#ffffff;--mute:#a9a9b4;--accent:#e5111f;--line:#2b2b33;color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(900px 500px at 85% -5%,#3d060b,transparent 65%),var(--bg);color:var(--ink);font:400 18px/1.9 "Noto Naskh Arabic","Noto Sans",serif;padding-bottom:52px;overflow-x:hidden}
+#navbar,.navbar,#Navbar1{display:none!important}
+a{color:inherit;text-decoration:none}
+a:hover{color:#ff5560}
+a:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+.widget{margin:0}
+
+/* header */
+header.site{position:sticky;top:0;z-index:5;background:rgba(9,9,11,.94);border-bottom:3px solid var(--accent)}
+.bar{display:flex;align-items:center;gap:22px;min-height:64px}
+.Header h1,.Header h3{margin:0;display:inline-block;background:var(--accent);padding:0 18px;line-height:44px;font:800 24px "Noto Kufi Arabic","Noto Sans",sans-serif;transform:skewX(-12deg);white-space:nowrap}
+.Header h1 a,.Header h3 a{color:#fff}
+.Header .description{display:none}
+.nav-sec h2{display:none}
+.nav-sec ul{list-style:none;margin:0;padding:0;display:flex;gap:20px;overflow-x:auto;white-space:nowrap;font-size:16px;color:var(--mute)}
+.nav-sec li{margin:0;padding:0}
+.label-count{display:none}
+
+/* live ticker */
+.ticker{position:fixed;inset:auto 0 0 0;z-index:9;background:#fff;color:#111;border-top:3px solid var(--accent);overflow:hidden;white-space:nowrap;font:600 15px "Noto Sans",sans-serif;direction:ltr;padding-bottom:env(safe-area-inset-bottom,0px)}
+.ticker::before{content:"\25CF LIVE";position:absolute;left:0;top:0;bottom:0;display:flex;align-items:center;padding:0 18px;background:var(--accent);color:#fff;font-weight:800;z-index:1}
+.ticker span{display:inline-block;padding:8px 0 8px 110px;animation:tk 60s linear infinite}
+@keyframes tk{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* hero with 3D globe (home page only) */
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;padding:48px 0 24px}
+.hero h2{font:800 clamp(28px,4.4vw,48px)/1.4 "Noto Kufi Arabic","Noto Sans",sans-serif;margin:0 0 12px;border-inline-start:8px solid var(--accent);padding-inline-start:18px}
+.hero p{color:var(--mute);margin:0;max-width:52ch}
+.scene{position:relative;perspective:1100px;height:340px;display:grid;place-items:center}
+.scene::before{content:"";position:absolute;bottom:6px;left:50%;width:440px;height:230px;margin-left:-220px;background:repeating-linear-gradient(90deg,#ffffff26 0 1px,transparent 1px 32px),repeating-linear-gradient(0deg,#ffffff26 0 1px,transparent 1px 32px);transform:perspective(500px) rotateX(68deg);-webkit-mask-image:radial-gradient(closest-side,#000,transparent);mask-image:radial-gradient(closest-side,#000,transparent)}
+.globe{position:relative;width:240px;height:240px;transform-style:preserve-3d;transform:rotateX(-18deg);animation:spin 24s linear infinite;filter:drop-shadow(0 0 16px #e5111f99)}
+.globe b{position:absolute;inset:0;border:2px solid #fff;border-radius:50%;opacity:.55;transform:rotateY(calc(var(--i)*30deg))}
+.globe b.eq{transform:rotateX(90deg);border-color:var(--accent);opacity:1}
+@keyframes spin{to{transform:rotateX(-18deg) rotateY(360deg)}}
+
+/* layout */
+.layout{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:32px;padding-top:20px}
+
+/* posts as 3D cards */
+.date-header{display:none}
+.date-outer{margin:0}
+.date-posts{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:24px;perspective:1200px}
+.post-outer{background:linear-gradient(180deg,#1b1b21,#0f0f12);border-top:3px solid var(--accent);padding:20px;transition:transform .25s ease,box-shadow .25s ease;box-shadow:0 14px 30px -18px rgba(0,0,0,.7)}
+.post-outer:hover{transform:rotateX(4deg) rotateY(-3deg) translateY(-6px);box-shadow:0 30px 40px -20px rgba(229,17,31,.4)}
+.post-title,.post-title a{font:500 20px/1.6 "Noto Kufi Arabic","Noto Sans",sans-serif;margin:0 0 8px;color:var(--ink)}
+.post-body{color:var(--mute);font-size:16px;line-height:1.8}
+body.index .post-body,body.archive .post-body{max-height:6.5em;overflow:hidden}
+.post-footer{margin-top:12px;font-size:14px;color:var(--mute)}
+.post-labels a{display:inline-block;background:var(--accent);color:#fff;padding:1px 10px;margin-inline-end:6px;font:800 12px "Noto Sans",sans-serif}
+.post img{max-width:100%;height:auto}
+body.item .date-posts{display:block}
+body.item .post-outer{padding:28px}
+body.item .post-outer:hover{transform:none;box-shadow:0 14px 30px -18px rgba(0,0,0,.7)}
+body.item .post-title,body.item .post-title a{font-size:30px}
+body.item .post-body{color:var(--ink);font-size:19px;max-height:none}
+.blog-pager{display:flex;justify-content:space-between;margin:24px 0;font-weight:800}
+
+/* sidebar */
+.sidebar .widget{background:var(--bg2);border-top:3px solid var(--accent);padding:18px;margin:0 0 20px}
+.sidebar h2{font:800 18px "Noto Kufi Arabic","Noto Sans",sans-serif;margin:0 0 10px}
+.sidebar ul{list-style:none;margin:0;padding:0}
+.sidebar li{padding:8px 0;border-bottom:1px solid var(--line)}
+.sidebar input[type=text]{width:100%;padding:8px 10px;border:1px solid var(--line);background:var(--bg);color:var(--ink);font:inherit}
+.sidebar input[type=submit]{margin-top:8px;padding:8px 18px;border:0;background:var(--accent);color:#fff;font:800 15px "Noto Kufi Arabic","Noto Sans",sans-serif;cursor:pointer}
+
+/* footer */
+footer.site{margin-top:50px;border-top:1px solid var(--line);padding:24px 0 40px;color:var(--mute);font-size:15px}
+
+@media(max-width:860px){.hero,.layout{grid-template-columns:1fr}.bar{flex-wrap:wrap;padding:8px 0}.nav-sec{flex-basis:100%;order:3}.scene{height:300px}}
+@media(prefers-reduced-motion:reduce){.globe,.ticker span{animation:none}.post-outer{transition:none}}
+]]></b:skin>
+</head>
+<body expr:class='data:blog.pageType'>
+
+<header class='site'>
+<div class='wrap bar'>
+<b:section class='brand-sec' id='header' maxwidgets='1' showaddelement='no'>
+<b:widget id='Header1' locked='true' title='HMnews (Header)' type='Header' version='2'/>
+</b:section>
+<b:section class='nav-sec' id='nav' maxwidgets='1' showaddelement='no'>
+<b:widget id='Label1' locked='false' title='' type='Label' version='2'/>
+</b:section>
+</div>
+</header>
+
+<b:if cond='data:blog.url == data:blog.homepageUrl'>
+<section class='wrap hero'>
+<div>
+<h2>أخبار وتحليلات وكتب سياسية</h2>
+<p>عدّل هذا النص من: القالب ← تعديل HTML. يظهر هذا القسم في الصفحة الرئيسية فقط.</p>
+</div>
+<div aria-hidden='true' class='scene'>
+<div class='globe'>
+<b style='--i:0'/><b style='--i:1'/><b style='--i:2'/><b style='--i:3'/><b style='--i:4'/><b style='--i:5'/><b class='eq'/>
+</div>
+</div>
+</section>
+</b:if>
+
+<div class='wrap layout'>
+<main>
+<b:section class='main' id='main' showaddelement='no'>
+<b:widget id='Blog1' locked='true' title='Blog Posts' type='Blog' version='2'/>
+</b:section>
+</main>
+<aside>
+<b:section class='sidebar' id='sidebar' preferred='yes'>
+<b:widget id='BlogSearch1' locked='false' title='بحث' type='BlogSearch' version='2'/>
+<b:widget id='PopularPosts1' locked='false' title='الأكثر قراءة' type='PopularPosts' version='2'/>
+</b:section>
+</aside>
+</div>
+
+<footer class='site'>
+<div class='wrap'>
+<b:section class='foot' id='footer' maxwidgets='1' showaddelement='no'>
+<b:widget id='Attribution1' locked='true' title='' type='Attribution' version='2'/>
+</b:section>
+</div>
+</footer>
+
+<div aria-hidden='true' class='ticker'><span>عاجل: عنوان خبر عاجل أول &#9670; عاجل: عنوان خبر عاجل ثانٍ &#9670; عاجل: عنوان خبر عاجل ثالث &#9670; عاجل: عنوان خبر عاجل أول &#9670; عاجل: عنوان خبر عاجل ثانٍ &#9670; عاجل: عنوان خبر عاجل ثالث &#9670; </span></div>
+
+</body>
+</html>
