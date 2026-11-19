@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0e1623"><title>الأفق | محادثة الذكاء الاصطناعي</title>
+<style>
+:root{--bg:#0e1623;--card:#142033;--line:#27364d;--ink:#eef2f8;--mut:#9fb0c8;--acc:#2ec4b6}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.7 Tahoma,Arial,sans-serif}.wrap{max-width:900px;margin:auto;padding:0 16px}header{display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-bottom:1px solid var(--line)}header a{color:var(--acc);text-decoration:none}.brand{font-size:24px;font-weight:bold}.chat{height:calc(100vh - 210px);min-height:420px;display:flex;flex-direction:column;margin:18px 0}.messages{flex:1;overflow:auto;padding:12px;border:1px solid var(--line);border-radius:14px 14px 0 0}.msg{max-width:82%;margin:10px 0;padding:10px 13px;border-radius:12px;white-space:pre-wrap}.user{margin-right:auto;background:var(--acc);color:#05201d}.bot{margin-left:auto;background:var(--card);border:1px solid var(--line)}.composer{display:flex;gap:8px;border:1px solid var(--line);border-top:0;padding:8px;border-radius:0 0 14px 14px}.composer textarea{flex:1;resize:none;height:54px;border:0;outline:0;background:transparent;color:var(--ink);font:16px Tahoma,Arial,sans-serif}.composer button{border:0;border-radius:9px;background:var(--acc);color:#05201d;padding:0 18px;font-weight:bold;cursor:pointer}.composer button:disabled{opacity:.6}.note{color:var(--mut);font-size:13px}.error{color:#ff847a}
+</style></head><body><div class="wrap">
+<header><a class="brand" href="./">الأفق</a><a href="./ai.html">صفحة الذكاء الاصطناعي</a></header>
+<h1>المحادثة الذكية</h1><div class="chat"><div class="messages" id="messages"><div class="msg bot">مرحبًا! أنا المساعد الذكي داخل الأفق. كيف يمكنني مساعدتك؟</div></div>
+<div class="composer"><textarea id="input" placeholder="اكتب رسالتك هنا…"></textarea><button id="send">إرسال</button></div></div>
+<p class="note" id="status">هذه واجهة محادثة آمنة تحتاج نقطة خلفية للحصول على الردود. لا ترسل معلومات حساسة.</p>
+</div>
+<script>
+const API_ENDPOINT='./api/chat';const messages=document.getElementById('messages'),input=document.getElementById('input'),send=document.getElementById('send'),status=document.getElementById('status');const history=[];
+function add(text,kind){const el=document.createElement('div');el.className='msg '+kind;el.textContent=text;messages.appendChild(el);messages.scrollTop=messages.scrollHeight;return el}
+async function submit(){const text=input.value.trim();if(!text||send.disabled)return;input.value='';add(text,'user');history.push({role:'user',content:text});const bot=add('جاري الكتابة…','bot');send.disabled=true;
+ try{const r=await fetch(API_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({messages:history})});const data=await r.json();if(!r.ok)throw Error(data.error||'فشل الاتصال بالمحادثة');bot.textContent=data.reply||'لم يصل رد.';history.push({role:'assistant',content:bot.textContent});status.textContent='تم الرد بواسطة مزود الذكاء الاصطناعي.'}
+ catch(e){bot.className+=' error';bot.textContent='تعذر الاتصال بالمحادثة. يجب تشغيل خادم آمن يدعم /api/chat.';status.textContent=e.message}
+ finally{send.disabled=false;input.focus()}
+}send.onclick=submit;input.addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.shiftKey){e.prevent.preventDefault();submit()}});
+</script></body></html>
